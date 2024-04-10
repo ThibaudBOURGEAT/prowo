@@ -1,0 +1,16 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px !important;
+    overflow: hidden;
+}
+
+#app-root{
+    height: 100%;
+    width: 100%;
+}
+
+:root{
+    --main-background-color: #2d2f31;
+    --secondary-background-color: #1f1f1f;
+}
