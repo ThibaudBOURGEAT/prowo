@@ -1,0 +1,33 @@
+.menu {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 50px;
+
+    .item-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        padding: 10px;
+        color: var(--not-selected-color);
+        transition: color 0.5s ease;
+
+        &:hover {
+            color: white;
+        }
+
+        &.selected {
+            color: white;
+            cursor: default;
+        }
+
+        .icon {
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}

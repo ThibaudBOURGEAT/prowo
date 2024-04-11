@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { BiPlusCircle, BiX } from 'react-icons/bi'
 import './Training.scss'
 
@@ -7,11 +7,12 @@ interface IProps {
 }
 
 export const Training: FC<IProps> = ({ }: IProps) => {
+    const [selected, setSelected] = useState<'Exercices' | 'Sessions'>('Sessions')
+
     return (
         <div className='training-page'>
             <div className='tabs'>
-                <div className='tab '>Sessions</div>
-                <div className='tab selected'>Exercices</div>
+                <div className='tab selected'><h2>{selected}</h2></div>
             </div>
             <div className='main-container'>
                 <div className='categories-container'>

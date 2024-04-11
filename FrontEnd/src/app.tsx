@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import './app.scss'
 import { BiLeftArrowCircle, BiRightArrowCircle } from 'react-icons/bi'
-import { LeftSideMenu } from "./components/LeftSideMenu/LeftSideMenu"
+import { Menu } from "./components/Menu/Menu"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Calendar } from './pages/Calendar/Calendar'
 import { Stats } from './pages/Stats/Stats'
@@ -12,8 +12,8 @@ export const App: FC = () => {
         <div className="app">
             <Router>
                 <div className="header-container">
-                    <div className="logo">Prowo</div>
-                    <LeftSideMenu />
+                    <div className="logo-container">Prowo</div>
+                    <div className="menu-container"><Menu /></div>
                 </div>
                 <div className="body-container">
                     <div className="page-container">

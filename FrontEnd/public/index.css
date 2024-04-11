@@ -12,7 +12,10 @@ body{
 }
 
 :root{
-    --main-background-color: #202020;
-    --secondary-background-color: #303030;
-    --hover-button-color: #5a5a5a;
+    --main-background-color: #cacaca;
+    --secondary-background-color: #979797;
+    --ssecondary-background-color: linear-gradient(180deg, #979797, #cacaca);
+    --not-selected-color: #818181;
+    --selected-button-color: linear-gradient(0deg, #222222, #00496b);
+    --hover-button-color: #4e4e4e;
 }

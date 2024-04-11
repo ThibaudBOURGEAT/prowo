@@ -1,19 +1,19 @@
 import React, { FC } from 'react'
 import { BiCalendar, BiDumbbell, BiTrendingUp } from 'react-icons/bi'
-import './LeftSideMenu.scss'
+import './Menu.scss'
 import { NavLink } from 'react-router-dom'
 
 interface IProps {
 
 }
 
-export const LeftSideMenu: FC<IProps> = ({ }: IProps) => {
+export const Menu: FC<IProps> = ({ }: IProps) => {
     function handleClickNavigation(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>){
         if (event.currentTarget.classList.contains("selected")) event.preventDefault()
     }
 
     return (
-        <div className='left-side-menu'>
+        <div className='menu'>
             <NavLink onClick={handleClickNavigation} className={(navData) => {
                 let selected = navData.isActive ? 'selected' : ''
                 return `item-menu ${selected}`
