@@ -1,15 +1,37 @@
 import React, { FC } from 'react'
+import { BiCalendar, BiDumbbell, BiTrendingUp } from 'react-icons/bi'
 import './LeftSideMenu.scss'
+import { NavLink } from 'react-router-dom'
 
-interface IProps{
-    
+interface IProps {
+
 }
 
-export const LeftSideMenu: FC<IProps> = ({}: IProps) => {
+export const LeftSideMenu: FC<IProps> = ({ }: IProps) => {
+    function handleClickNavigation(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>){
+        if (event.currentTarget.classList.contains("selected")) event.preventDefault()
+    }
+
     return (
         <div className='left-side-menu'>
-            <div>Exercices</div>
-            <div>Seances</div>
+            <NavLink onClick={handleClickNavigation} className={(navData) => {
+                let selected = navData.isActive ? 'selected' : ''
+                return `item-menu ${selected}`
+            }} to='' data-description='training'>
+                <div className="icon"><BiDumbbell /></div>
+            </NavLink>
+            <NavLink onClick={handleClickNavigation} className={(navData) => {
+                let selected = navData.isActive ? 'selected' : ''
+                return `item-menu ${selected}`
+            }} to='calendar' data-description='calendar'>
+                <div className="icon"><BiCalendar /></div>
+            </NavLink>
+            <NavLink onClick={handleClickNavigation} className={(navData) => {
+                let selected = navData.isActive ? 'selected' : ''
+                return `item-menu ${selected}`
+            }} to='stats' data-description='stats'>
+                <div className="icon"><BiTrendingUp /></div>
+            </NavLink>
         </div>
     )
 }

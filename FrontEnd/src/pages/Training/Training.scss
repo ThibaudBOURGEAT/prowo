@@ -1,0 +1,92 @@
+.training-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    // border: solid 2px var(--secondary-background-color);
+    border-radius: 8px;
+
+    .tabs {
+        display: flex;
+        background-color: rgb(97, 97, 97);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        .tab {
+            padding: 10px;
+            background-color: rgb(97, 97, 97);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--hover-button-color);
+            }
+
+            &.selected {
+                background-color: var(--secondary-background-color) !important;
+                cursor: default;
+            }
+        }
+    }
+
+    .main-container {
+        display: flex;
+        height: inherit;
+        align-items: flex-start;
+        background-color: var(--secondary-background-color);
+        padding: 10px;
+        border-radius: 8px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+
+        .categories-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .category {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 40px;
+                background-color: red;
+                padding: 5px 10px;
+                gap: 10px;
+
+                .category-nam {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                }
+
+                .category-exit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .add-category {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 40px;
+                cursor: pointer;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                &:hover {
+                    background-color: #858585;
+                }
+            }
+        }
+    }
+}
