@@ -29,6 +29,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                         <BiPlusCircle />
                     </div>
                 </div>
+                <div className=''></div>
             </div>
         </div>)
 }

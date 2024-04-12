@@ -1,8 +1,7 @@
 .training-page {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background: var(--secondary-background-color);
+    width: 100%;
     border-radius: 8px;
 
     .tabs {
@@ -14,18 +13,15 @@
             justify-content: center;
             width: -webkit-fill-available;
             padding: 10px;
-            color: #818181;
             cursor: pointer;
             transition: color 0.5s ease;
 
             &:hover {
-                //background-color: var(--hover-button-color);
                 color: white;
             }
 
             &.selected {
                 color: white;
-                //background: var(--selected-button-color) !important;
                 cursor: default;
             }
         }

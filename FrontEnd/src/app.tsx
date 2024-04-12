@@ -1,21 +1,35 @@
 import React, { FC } from "react"
 import './app.scss'
-import { BiLeftArrowCircle, BiRightArrowCircle } from 'react-icons/bi'
-import { Menu } from "./components/Menu/Menu"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Calendar } from './pages/Calendar/Calendar'
-import { Stats } from './pages/Stats/Stats'
-import { Training } from './pages/Training/Training'
+import { BiCalendar, BiDumbbell, BiTrendingUp } from "react-icons/bi"
+import { NavButton } from "./components/NavButton/NavButton"
+import { Training } from "./pages/Training/Training"
+import { Calendar } from "./pages/Calendar/Calendar"
+import { Stats } from "./pages/Stats/Stats"
 
 export const App: FC = () => {
     return (
         <div className="app">
             <Router>
-                <div className="header-container">
+                <div className="menu-container">
+                    <NavButton icon={<BiDumbbell />} to={'/'} text={'Training'} />
+                    <NavButton icon={<BiCalendar />} to={'/calendar'} text={'Calendar'} />
+                    <NavButton icon={<BiTrendingUp />} to={'/stats'} text={'Stats'} />
+                </div>
+                <div className="main-container">
+                    <Routes>
+                        <Route path="/" element={<Training />} />
+                        <Route path="/calendar" element={<Calendar />} />
+                        <Route path="/stats" element={<Stats />} />
+                    </Routes>
+                </div>
+                <div className="infos-container"></div>
+
+                {/* <div className="header-container">
                     <div className="logo-container">Prowo</div>
                     <div className="menu-container"><Menu /></div>
-                </div>
-                <div className="body-container">
+                </div> */}
+                {/* <div className="body-container">
                     <div className="page-container">
                         <Routes>
                             <Route path="/" element={<Training />} />
@@ -26,7 +40,7 @@ export const App: FC = () => {
                     <div className="infos-container">
 
                     </div>
-                </div>
+                </div> */}
             </Router>
         </div>
     )

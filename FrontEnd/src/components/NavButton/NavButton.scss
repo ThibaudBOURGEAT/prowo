@@ -1,0 +1,60 @@
+.nav-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--not-selected-color);
+    transition: color 0.5s ease;
+    text-decoration: none;
+    gap: 10px;
+    z-index: 99;
+
+    .text-hover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        position: absolute;
+        left: 49px;
+        padding: 10px;
+        color: white; 
+        height: -webkit-fill-available;
+        background-color: #535353;
+        border-radius: 0 4px 4px 0;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: white;
+
+        .text-hover {
+            visibility: visible;
+        }
+    }
+
+    &.selected {
+        color: white;
+        cursor: default;
+
+        .icon{
+            background-color: #424242;
+        }
+
+        .text-hover{
+            background-color: #424242;
+        }
+    }
+
+    .icon {
+        z-index: 100;
+        padding: 10px;
+        background-color: #535353;
+
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
