@@ -1,0 +1,27 @@
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #dfdfdf;
+    background-color: #3b3b3b;
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    svg{
+        width: 24px;
+        height: 24px;
+    }
+
+    input{
+        border: none;
+        color: #dfdfdf;
+        font-size: larger;
+        width: inherit;
+        background-color: #3b3b3b;
+
+        &:focus{
+            outline: none;
+        }
+    }
+}

@@ -20,8 +20,8 @@
         padding: 10px;
         color: white; 
         height: -webkit-fill-available;
-        background-color: #535353;
-        border-radius: 0 4px 4px 0;
+        background-color: #3b3b3b;
+        border-radius: 0 8px 8px 0;
         overflow: hidden;
         z-index: -1;
     }
@@ -37,20 +37,11 @@
     &.selected {
         color: white;
         cursor: default;
-
-        .icon{
-            background-color: #424242;
-        }
-
-        .text-hover{
-            background-color: #424242;
-        }
     }
 
     .icon {
         z-index: 100;
         padding: 10px;
-        background-color: #535353;
 
         svg {
             width: 30px;

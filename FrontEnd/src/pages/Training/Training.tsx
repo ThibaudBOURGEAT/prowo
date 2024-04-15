@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { BiPlusCircle, BiX } from 'react-icons/bi'
 import './Training.scss'
+import { SearchBar } from '../../components/SearchBar/SearchBar'
 
 interface IProps {
 
@@ -11,8 +12,8 @@ export const Training: FC<IProps> = ({ }: IProps) => {
 
     return (
         <div className='training-page'>
-            <div className='tabs'>
-                <div className='tab selected'><h2>{selected}</h2></div>
+            <div className='search-bar-container'>
+                <SearchBar placeholder='Recherche...' size={600} />
             </div>
             <div className='main-container'>
                 <div className='categories-container'>
@@ -29,7 +30,17 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                         <BiPlusCircle />
                     </div>
                 </div>
-                <div className=''></div>
+                <div className='workout-tiles-container'>
+                    <div className='workout-tile'>
+                        <div className='workout-picture'>
+                            <img src='https://www.lesdessousdusport.fr/wp-content/uploads/2022/10/Exercice-front-lever.jpg' />
+                        </div>
+                        <h3 className='workout-title'>
+                            Dos Front
+                        </h3>
+                        <div className='workout-type'>Type : Session</div>
+                    </div>
+                </div>
             </div>
         </div>)
 }
