@@ -13,3 +13,4 @@ export const SearchBar: FC<IProps> = ({ placeholder, size }: IProps) => {
         <input placeholder={placeholder}></input>
     </div>)
 }
+

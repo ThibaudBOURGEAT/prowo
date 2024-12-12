@@ -16,7 +16,7 @@ export const App: FC = () => {
                     <NavButton icon={<BiCalendar />} to={'/calendar'} text={'Calendar'} />
                     <NavButton icon={<BiTrendingUp />} to={'/stats'} text={'Stats'} />
                 </div>
-                <div className="main-container">
+                <div className="page-container">
                     <Routes>
                         <Route path="/" element={<Training />} />
                         <Route path="/calendar" element={<Calendar />} />

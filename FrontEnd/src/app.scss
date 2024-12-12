@@ -1,8 +1,12 @@
 .app {
+    --primary-color: #3b3b3b;
+    --secondary-color: #535353;
+    --third-color: #424242;
+    overflow: hidden;
     font-family: 'Google Sans', sans-serif;
     display: flex;
     gap: 10px;
-    background-color: #3b3b3b;
+    background-color: var(--primary-color);
     color: white;
     width: -webkit-fill-available;
     height: -webkit-fill-available;
@@ -13,25 +17,24 @@
         gap: 20px;
         flex-direction: column;
         align-items: flex-start;
-        //background-color: #535353;
         border-radius: 4px;
         padding: 10px 0;
     }
 
-    .main-container {
+    .page-container {
         display: flex;
-        width: 70%;
         align-items: flex-start;
-        background-color: #535353;
+        background-color: var(--secondary-color);
         border-radius: 4px;
         padding: 20px;
+        overflow: hidden;
     }
 
     .infos-container {
-        width: 30%;
+        width: 800px;
         display: flex;
         align-items: flex-start;
-        background-color: #535353;
+        background-color: var(--secondary-color);
         border-radius: 4px;
         padding: 10px 0;
     }

@@ -2,9 +2,17 @@ import React, { FC, useState } from 'react'
 import { BiPlusCircle, BiX } from 'react-icons/bi'
 import './Training.scss'
 import { SearchBar } from '../../components/SearchBar/SearchBar'
+import { IRoutine } from '../../entities/Routine'
+import { WorkoutTile } from './components/WorkoutTile/WorkoutTile'
 
 interface IProps {
 
+}
+
+const routine: IRoutine = {
+    id: 'pouet',
+    title: 'Front lever',
+    categories: [{ name: 'dos', color: 'blue' }, { name: 'pull', color: 'blue' }, { name: 'statique', color: 'blue' }]
 }
 
 export const Training: FC<IProps> = ({ }: IProps) => {
@@ -31,16 +39,49 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                     </div>
                 </div>
                 <div className='workout-tiles-container'>
-                    <div className='workout-tile'>
-                        <div className='workout-picture'>
-                            <img src='https://www.lesdessousdusport.fr/wp-content/uploads/2022/10/Exercice-front-lever.jpg' />
-                        </div>
-                        <h3 className='workout-title'>
-                            Dos Front
-                        </h3>
-                        <div className='workout-type'>Type : Session</div>
-                    </div>
-                </div>
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                    <WorkoutTile routine={routine} />
+                </div>                
             </div>
         </div>)
 }
