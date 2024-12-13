@@ -4,11 +4,12 @@ import { IRoutine } from "../../../../entities/Routine"
 
 interface IProps {
     routine: IRoutine
+    onClick: React.MouseEventHandler<HTMLDivElement> | undefined
 }
 
-export const WorkoutTile: FC<IProps> = ({ routine }: IProps) => {
+export const WorkoutTile: FC<IProps> = ({ routine, onClick }: IProps) => {
     return (
-        <div className='workout-tile'>
+        <div className='workout-tile' onClick={onClick}>
             <h3 className='workout-tile-title'>
                 {routine.title}
             </h3>

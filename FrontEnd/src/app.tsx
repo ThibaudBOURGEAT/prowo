@@ -23,24 +23,6 @@ export const App: FC = () => {
                         <Route path="/stats" element={<Stats />} />
                     </Routes>
                 </div>
-                <div className="infos-container"></div>
-
-                {/* <div className="header-container">
-                    <div className="logo-container">Prowo</div>
-                    <div className="menu-container"><Menu /></div>
-                </div> */}
-                {/* <div className="body-container">
-                    <div className="page-container">
-                        <Routes>
-                            <Route path="/" element={<Training />} />
-                            <Route path="/calendar" element={<Calendar />} />
-                            <Route path="/stats" element={<Stats />} />
-                        </Routes>
-                    </div>
-                    <div className="infos-container">
-
-                    </div>
-                </div> */}
             </Router>
         </div>
     )

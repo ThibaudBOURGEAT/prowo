@@ -22,20 +22,11 @@
     }
 
     .page-container {
+        width: -webkit-fill-available;
+        border-radius: 8px;
         display: flex;
-        align-items: flex-start;
-        background-color: var(--secondary-color);
-        border-radius: 4px;
-        padding: 20px;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
-    }
-
-    .infos-container {
-        width: 800px;
-        display: flex;
-        align-items: flex-start;
-        background-color: var(--secondary-color);
-        border-radius: 4px;
-        padding: 10px 0;
-    }
+    }    
 }
