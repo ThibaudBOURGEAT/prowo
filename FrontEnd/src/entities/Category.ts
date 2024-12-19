@@ -3,7 +3,7 @@ export interface ICategory{
     color: string
 }
 
-export const Categories: ICategory[] = [
+export const categories: ICategory[] = [
     { name: "Abdominaux", color: "rgb(207, 100, 0)" },
     { name: "Abducteurs", color: "rgb(207, 193, 0)" },
     { name: "Adducteurs", color: "rgb(207, 193, 0)" },

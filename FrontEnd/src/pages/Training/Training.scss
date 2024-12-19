@@ -1,5 +1,6 @@
 .training{
     display: flex;
+    width: -webkit-fill-available;
     height: -webkit-fill-available;
     align-items: center;
     justify-content: center;
@@ -58,7 +59,7 @@
                     justify-content: center;
                     align-items: center;
                     border-radius: 40px;
-                    background-color: rgb(0, 183, 255);
+                    background-color: rgb(207, 100, 0);
                     padding: 5px 10px;
                     gap: 10px;
     
