@@ -1,0 +1,23 @@
+.categories-select-containeur{
+    background-color: black;
+    border-radius: 4px;
+    padding: 10px 5px;
+
+    .categories-select{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .category-option{
+            background-color: blue;
+
+            &:hover{
+                background-color: azure;
+            }
+
+            .category-name{
+                cursor: pointer;
+            }
+        }
+    }
+}

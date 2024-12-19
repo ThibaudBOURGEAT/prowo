@@ -6,6 +6,7 @@ import { IRoutine } from '../../entities/Routine'
 import { WorkoutTile } from './components/WorkoutTile/WorkoutTile'
 import { ICategory, categories } from '../../entities/Category'
 import { Category } from './components/Category/Category'
+import { CategoriesSelect } from './components/CategoriesSelect/CategoriesSelect'
 
 interface IProps {
 
@@ -29,7 +30,6 @@ export const Training: FC<IProps> = ({ }: IProps) => {
     }
 
     const filterRoutinesByCategories = (routinesToFilter: IRoutine[]) => {
-        console.log('categories filter', categoryFilters)
         let newState = [...routinesToFilter]
         if (categoryFilters.length > 0) {
             newState = newState.filter(r => {
@@ -41,9 +41,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
         setRoutines(newState);
     }
 
-    const removeCategory = (category: ICategory) => {
-        setCategoryFilters(prev => [...prev].filter(c => c !== category))
-    }
+    const removeCategory = (category: ICategory) => setCategoryFilters(prev => [...prev].filter(c => c !== category))
 
     useEffect(() => { fecthRoutines() }, [categoryFilters, setCategoryFilters])
 
@@ -62,6 +60,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                         <div className='add-category'>
                             <BiPlusCircle />
                         </div>
+                        <CategoriesSelect categories={categoryFilters} />
                     </div>
                     <div className='workout-tiles-container'>
                         {routines.map((r, i) => (
