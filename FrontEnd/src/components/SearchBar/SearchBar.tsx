@@ -4,6 +4,7 @@ import { BiSearchAlt2 } from 'react-icons/bi'
 
 interface IProps{
     placeholder?:string
+    setSearchText: React.Dispatch<React.SetStateAction<string>>
     size: number
 }
 

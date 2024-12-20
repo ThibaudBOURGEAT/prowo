@@ -23,11 +23,13 @@ export const Training: FC<IProps> = ({ }: IProps) => {
     const [categoryFilters, setCategoryFilters] = useState<ICategory[]>([categories[1], categories[0]])
     const [selectedRoutine, setSelectedRoutine] = useState<IRoutine | null>(null)
     const [enabledCategoriesSelect, setEnabledCategoriesSelect] = useState(false)
+    const [searchText, setSearchText] = useState('')
     let categoriesRef = React.createRef<HTMLDivElement>();
 
     const fecthRoutines = async () => {
         var fecthedRoutines: IRoutine[] = []
         for (let i = 0; i < 30; i++) fecthedRoutines.push(routine)
+            console.log('routine categories', [categories[0], categories[2], categories[4]])
         filterRoutinesByCategories(fecthedRoutines)
     }
 
@@ -36,7 +38,8 @@ export const Training: FC<IProps> = ({ }: IProps) => {
         if (categoryFilters.length > 0) {
             newState = newState.filter(r => {
                 let result = false
-                for (const category of categoryFilters) result = r.categories.includes(category)
+                for (const category of categoryFilters)
+                    if(r.categories.includes(category)) result = true
                 return result
             })
         }
@@ -54,7 +57,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
         <div className='training'>
             <div className='training-page'>
                 <div className='search-bar-container'>
-                    <SearchBar placeholder='Recherche...' size={600} />
+                    <SearchBar placeholder='Recherche...' size={600} setSearchText={setSearchText} />
                 </div>
                 <div className='main-container'>
                     <div className='categories-container'>
