@@ -1,23 +1,23 @@
-.categories-select-containeur{
-    background-color: black;
-    border-radius: 4px;
-    padding: 10px 5px;
+.categories-select {
+    position: fixed;
+    display: flex;
+    border-radius: 8px;
+    background-color: var(--select-color);
+    padding: 10px;
+    flex-direction: column;
+    gap: 5px;
 
-    .categories-select{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+    .category-option {
+        cursor: pointer;
+        background-color: blue;
+        border-radius: 4px;;
 
-        .category-option{
-            background-color: blue;
+        &:hover {
+            background-color: azure;
+        }
 
-            &:hover{
-                background-color: azure;
-            }
-
-            .category-name{
-                cursor: pointer;
-            }
+        .category-name {
+            cursor: pointer;
         }
     }
 }

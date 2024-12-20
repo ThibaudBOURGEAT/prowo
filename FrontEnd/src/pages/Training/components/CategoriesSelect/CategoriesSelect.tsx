@@ -1,37 +1,49 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import './CategoriesSelect.scss'
 import { ICategory } from '../../../../entities/Category'
-import { BiCheck } from 'react-icons/bi'
 
 interface IProps {
     categories: ICategory[]
+    setCategoryFilters: React.Dispatch<React.SetStateAction<ICategory[]>>
+    parentRef: React.RefObject<HTMLDivElement>
 }
 
-interface ICategoryOption extends ICategory { seleted: boolean }
+export const CategoriesSelect: FC<IProps> = ({ categories, setCategoryFilters, parentRef }: IProps) => {
+    const [categoriesOptions, setCategoriesOptions] = useState<ICategory[]>([])
+    let selfRef = React.createRef<HTMLDivElement>()
+    
+    const calculatePosition = () => {
+        if(parentRef.current && selfRef.current){
+            let left, top = 0
+            const spacing = 10 
 
-export const CategoriesSelect: FC<IProps> = ({ categories }: IProps) => {
-    const [categoriesOptions, setCategoriesOptions] = useState<ICategoryOption[]>([])
+            const parentProps = parentRef.current.getBoundingClientRect()
+            const selfProps = selfRef.current.getBoundingClientRect()
 
-    const initCategoriesOptions = () => {
-        setCategoriesOptions(categories.map(c => {
-            return { ...c, seleted: false }
-        }))
+            top = parentProps.top
+            left = parentProps.right + spacing
+
+            selfRef.current.style.left = `${left}px`
+            selfRef.current.style.top = `${top}px`
+        }
     }
 
-    const onClickCategory = (categoryOption: ICategoryOption) => categoryOption.seleted = true
+    const initCategoriesOptions = () => setCategoriesOptions(categories)
 
-    useEffect(() => { initCategoriesOptions() }, [categories])
+    const onClickCategory = (category: ICategory) => setCategoryFilters(prev => [...prev, category])
+
+    useEffect(() => { 
+        initCategoriesOptions()
+        calculatePosition()
+    }, [categories])
 
     return (
-        <div className='categories-select-containeur'>
-            <div className='categories-select'>
-                {categoriesOptions.map((c, i) =>
-                    <div className='category-option' key={'select' + c.name + i.toString()} onClick={() => onClickCategory(c)}>
-                        <label className='category-name'>{c.name}</label>
-                        {c.seleted && <BiCheck />}
-                    </div>
-                )}
-            </div>
+        <div className='categories-select' ref={selfRef}>
+            {categoriesOptions.map((c, i) =>
+                <div className='category-option' key={'select' + c.name + i.toString()} onClick={() => onClickCategory(c)}>
+                    <label className='category-name'>{c.name}</label>
+                </div>
+            )}
         </div>
     )
 }
