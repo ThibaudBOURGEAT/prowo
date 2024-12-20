@@ -22,6 +22,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
     const [routines, setRoutines] = useState<IRoutine[]>([])
     const [categoryFilters, setCategoryFilters] = useState<ICategory[]>([categories[1], categories[0]])
     const [selectedRoutine, setSelectedRoutine] = useState<IRoutine | null>(null)
+    const [enabledCategoriesSelect, setEnabledCategoriesSelect] = useState(false)
     let categoriesRef = React.createRef<HTMLDivElement>();
 
     const fecthRoutines = async () => {
@@ -40,6 +41,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
             })
         }
         setRoutines(newState);
+        setEnabledCategoriesSelect(false)
     }
 
     const getSelectableCategories = () => categories.filter(c => !categoryFilters.includes(c)) 
@@ -60,10 +62,10 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                         {categoryFilters.map((cf, i) =>
                             <Category key={cf.name + i.toString()} category={cf} removeCategory={removeCategory} />
                         )}
-                        <div className='add-category' ref={categoriesRef}>
+                        <div className='add-category' ref={categoriesRef} onClick={() => setEnabledCategoriesSelect(value => !value)}>
                             <BiPlusCircle />
                         </div>
-                        <CategoriesSelect categories={getSelectableCategories()} setCategoryFilters={setCategoryFilters} parentRef={categoriesRef} />
+                        {enabledCategoriesSelect && <CategoriesSelect categories={getSelectableCategories()} setCategoryFilters={setCategoryFilters} parentRef={categoriesRef} />}
                     </div>
                     <div className='workout-tiles-container'>
                         {routines.map((r, i) => (

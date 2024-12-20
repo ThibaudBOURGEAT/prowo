@@ -6,14 +6,30 @@
     padding: 10px;
     flex-direction: column;
     gap: 5px;
+    overflow-y: auto;
+    height: 150px;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--select-color);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--third-color);
+        border-radius: 10px;
+        border: var(--select-color) solid 2px;
+    }
 
     .category-option {
-        cursor: pointer;
-        background-color: blue;
-        border-radius: 4px;;
+        cursor: pointer;        
+        border-radius: 4px;
 
         &:hover {
-            background-color: azure;
+            background-color: var(--third-color);
         }
 
         .category-name {
