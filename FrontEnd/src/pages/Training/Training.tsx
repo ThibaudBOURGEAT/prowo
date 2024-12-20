@@ -15,7 +15,8 @@ interface IProps {
 const routine: IRoutine = {
     id: 'pouet',
     title: 'Front lever',
-    categories: [categories[0], categories[2], categories[4]]
+    categories: [categories[0], categories[2], categories[4]],
+    sets: []
 }
 
 export const Training: FC<IProps> = ({ }: IProps) => {
