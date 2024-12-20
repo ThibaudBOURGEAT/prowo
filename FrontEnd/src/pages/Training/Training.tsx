@@ -29,8 +29,9 @@ export const Training: FC<IProps> = ({ }: IProps) => {
     const fecthRoutines = async () => {
         var fecthedRoutines: IRoutine[] = []
         for (let i = 0; i < 30; i++) fecthedRoutines.push(routine)
-            console.log('routine categories', [categories[0], categories[2], categories[4]])
-        filterRoutinesByCategories(fecthedRoutines)
+        const filteredRoutines = await filterRoutine(fecthedRoutines)
+        setRoutines(filteredRoutines)
+        setEnabledCategoriesSelect(false)
     }
 
     const filterRoutinesByCategories = (routinesToFilter: IRoutine[]) => {
@@ -39,19 +40,34 @@ export const Training: FC<IProps> = ({ }: IProps) => {
             newState = newState.filter(r => {
                 let result = false
                 for (const category of categoryFilters)
-                    if(r.categories.includes(category)) result = true
+                    if (r.categories.includes(category)) result = true
                 return result
             })
         }
-        setRoutines(newState);
-        setEnabledCategoriesSelect(false)
+        return newState
     }
 
-    const getSelectableCategories = () => categories.filter(c => !categoryFilters.includes(c)) 
+    const filterRoutineBySearchText = (routinesToFilter: IRoutine[]) => {
+        let newState = [...routinesToFilter]
+        if (searchText.length > 0)
+            newState = newState.filter(r => {
+                const title = r.title.toUpperCase()
+                return title.includes(searchText.toUpperCase())
+            })
+        return newState
+    }
+
+    const filterRoutine = async (routinesToFilter: IRoutine[]) => {
+        return new Promise<IRoutine[]>((res) => res(filterRoutinesByCategories(routinesToFilter)))
+            .then((result) => filterRoutineBySearchText(result))
+    }
+
+
+    const getSelectableCategories = () => categories.filter(c => !categoryFilters.includes(c))
 
     const removeCategory = (category: ICategory) => setCategoryFilters(prev => [...prev].filter(c => c !== category))
 
-    useEffect(() => { fecthRoutines() }, [categoryFilters, setCategoryFilters])
+    useEffect(() => { fecthRoutines() }, [categoryFilters, setCategoryFilters, searchText, setSearchText])
 
     return (
         <div className='training'>

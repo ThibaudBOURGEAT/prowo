@@ -8,10 +8,10 @@ interface IProps{
     size: number
 }
 
-export const SearchBar: FC<IProps> = ({ placeholder, size }: IProps) => {
+export const SearchBar: FC<IProps> = ({ placeholder, size, setSearchText }: IProps) => {
     return (<div className='search-bar' style={{ width: `${size}px` }}>
         <BiSearchAlt2 />
-        <input placeholder={placeholder}></input>
+        <input placeholder={placeholder} onChange={(e) => setSearchText(e.target.value)} />
     </div>)
 }
 
