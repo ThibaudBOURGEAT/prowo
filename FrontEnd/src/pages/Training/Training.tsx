@@ -7,6 +7,7 @@ import { WorkoutTile } from './components/WorkoutTile/WorkoutTile'
 import { ICategory, categories } from '../../entities/Category'
 import { Category } from './components/Category/Category'
 import { CategoriesSelect } from './components/CategoriesSelect/CategoriesSelect'
+import { UpdateRoutineModal } from './modal/UpdateRoutineModal/UpdateRoutineModal'
 
 interface IProps {
 
@@ -21,8 +22,8 @@ const routine: IRoutine = {
 
 export const Training: FC<IProps> = ({ }: IProps) => {
     const [routines, setRoutines] = useState<IRoutine[]>([])
-    const [categoryFilters, setCategoryFilters] = useState<ICategory[]>([categories[1], categories[0]])
     const [selectedRoutine, setSelectedRoutine] = useState<IRoutine | null>(null)
+    const [categoryFilters, setCategoryFilters] = useState<ICategory[]>([categories[1], categories[0]])
     const [enabledCategoriesSelect, setEnabledCategoriesSelect] = useState(false)
     const [searchText, setSearchText] = useState('')
     let categoriesRef = React.createRef<HTMLDivElement>();
@@ -94,7 +95,7 @@ export const Training: FC<IProps> = ({ }: IProps) => {
                     </div>
                 </div>
             </div>
-            {selectedRoutine && <div className="training-infos-container"></div>}
+            {selectedRoutine && <UpdateRoutineModal routine={selectedRoutine} />}
         </div>
     )
 }

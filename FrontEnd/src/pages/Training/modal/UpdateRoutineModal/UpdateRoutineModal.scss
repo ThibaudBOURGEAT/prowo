@@ -1,0 +1,16 @@
+.update-routine-modal {
+    width: 50%;
+    height: -webkit-fill-available;
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    padding: 20px;
+
+    .update-routine-modal-header{
+        display: flex;
+        width: -webkit-fill-available;
+        align-items: center;
+        justify-content: center;
+    }
+}
